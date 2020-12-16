@@ -16,11 +16,11 @@
       <!--        </el-menu>-->
 
       <el-menu router :default-openeds="['0','1']">
-        <el-submenu v-for="(item,index) in $router.options.routes" :index="index+''">
+        <el-submenu v-for="(item,index) in $router.options.routes" :key="index+''">
           <template slot="title"><i class="el-icon-message"></i>{{item.name}}</template>
           <el-menu-item
                   v-for="(item2,index2) in item.children"
-                  v-bind:index="item2.path"
+                  :key="item2.path"
                   :class="$route.path===item2.path? 'is-active':''">
             <i class="el-icon-setting"></i>{{item2.name}}
           </el-menu-item>
